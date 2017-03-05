@@ -88,7 +88,7 @@ class telegram extends Controller
 
             $this->telegram->sendMessage([
                 'chat_id' => $this->channel,
-                'text' => $caption,
+                'text' => $this->addSignature($caption),
                 'disable_notification' => true
             ]);
 
