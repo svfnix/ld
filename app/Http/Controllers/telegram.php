@@ -19,28 +19,12 @@ class telegram extends Controller
         return 'https://api.telegram.org/file/bot'.config('telegram.bot_token').'/'.$file->getFilePath();
     }
 
-    function clrStr($str){
-
-        $words = [
-            '@Campe85',
-            '@Tamasha_channel'
-        ];
-
-        foreach ($words as $word) {
-            $str = str_ireplace($word, '', $str);
-        }
-
-        return $str;
-    }
-
     function getCaptionFromMessage($message){
-        $caption = $message->has('caption') ? $message->getCaption() : '';
-        return $this->clrStr($caption);
+        return $message->has('caption') ? $message->getCaption() : '';
     }
 
     function getTextFromMessage($message){
-        $text = $message->has('text') ? $message->getText() : '';
-        return $this->clrStr($text);
+        return $message->has('text') ? $message->getText() : '';
     }
 
     function addSignature($message){
